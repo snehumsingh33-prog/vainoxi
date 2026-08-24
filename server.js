@@ -28,6 +28,9 @@ function passwordMatches(password, storedHash, salt) {
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cookieParser());
 app.use(express.json({ limit: '8mb' }));
+app.get(['/index.html', '/style.css', '/script.js', '/admin.html', '/admin.css', '/admin.js'], (request, response) => {
+  response.sendFile(path.join(__dirname, request.path.slice(1)));
+});
 app.use(express.static(__dirname));
 app.get('/', (request, response) => response.sendFile(path.join(__dirname, 'index.html')));
 
