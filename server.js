@@ -101,7 +101,12 @@ async function start() {
     const adminPassword = hashPassword(initialAdminPassword);
     await credentials.insertOne({ type: 'admin', passwordHash: adminPassword.hash, passwordSalt: adminPassword.salt });
   }
-  app.listen(port, () => console.log(`DaanSetu running at http://localhost:${port}`));
+  return app;
 }
 
-start().catch((error) => { console.error('Could not start DaanSetu:', error.message); process.exit(1); });
+if (require.main === module) {
+  start().then(() => app.listen(port, () => console.log(`DaanSetu running at http://localhost:${port}`)))
+    .catch((error) => { console.error('Could not start DaanSetu:', error.message); process.exit(1); });
+}
+
+module.exports = { app, start };
