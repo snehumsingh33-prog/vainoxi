@@ -109,4 +109,9 @@ if (require.main === module) {
     .catch((error) => { console.error('Could not start DaanSetu:', error.message); process.exit(1); });
 }
 
-module.exports = { app, start };
+let ready;
+module.exports = async (request, response) => {
+  ready ||= start();
+  await ready;
+  return app(request, response);
+};
