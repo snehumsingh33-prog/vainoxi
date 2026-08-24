@@ -1,3 +1,4 @@
+const path = require('path');
 const crypto = require('crypto');
 const express = require('express');
 const helmet = require('helmet');
@@ -28,6 +29,7 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cookieParser());
 app.use(express.json({ limit: '8mb' }));
 app.use(express.static(__dirname));
+app.get('/', (request, response) => response.sendFile(path.join(__dirname, 'index.html')));
 
 async function requireAdmin(request, response, next) {
   const token = request.cookies.daansetu_admin;
