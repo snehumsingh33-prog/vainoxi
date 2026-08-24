@@ -111,7 +111,12 @@ if (require.main === module) {
 
 let ready;
 module.exports = async (request, response) => {
+  if (!request.url.startsWith('/api')) return app(request, response);
   ready ||= start();
-  await ready;
+  try {
+    await ready;
+  } catch (error) {
+    return response.status(503).json({ error: 'Database is not configured. Set MONGODB_URI in Vercel environment variables.' });
+  }
   return app(request, response);
 };
