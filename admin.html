@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DaanSetu Admin</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <main class="admin-shell">
+    <section id="login-panel" class="login-panel">
+      <p class="eyebrow">DaanSetu / Admin</p>
+      <h1>Keep the community clean.</h1>
+      <p class="muted">Sign in to review and manage donation listings.</p>
+      <form id="login-form">
+        <label for="password">Admin password</label>
+        <input id="password" type="password" required autocomplete="current-password" />
+        <button type="submit">Sign in</button>
+        <p id="login-message" class="message" role="alert"></p>
+      </form>
+    </section>
+    <section id="dashboard" hidden>
+      <header class="dashboard-header"><div><p class="eyebrow">DaanSetu / Admin</p><h1>Donation review</h1></div><div class="header-buttons"><button id="password-toggle" class="secondary-button">Change password</button><button id="logout-button" class="secondary-button">Log out</button></div></header>
+      <form id="password-form" class="password-panel" hidden><h2>Change admin password</h2><div class="password-fields"><div><label for="current-password">Current password</label><input id="current-password" type="password" required autocomplete="current-password" /></div><div><label for="new-password">New password</label><input id="new-password" type="password" minlength="8" required autocomplete="new-password" /></div><div><label for="confirm-password">Confirm new password</label><input id="confirm-password" type="password" minlength="8" required autocomplete="new-password" /></div></div><button type="submit">Update password</button><button id="password-cancel" class="secondary-button" type="button">Cancel</button><p id="password-message" class="message" role="status"></p></form>
+      <div id="stats" class="stats"></div>
+      <div class="toolbar"><h2>All listings</h2><select id="status-filter"><option value="all">All statuses</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></div>
+      <div id="admin-list" class="admin-list"></div>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
