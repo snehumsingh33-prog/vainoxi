@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DaanSetu is a simple platform for sharing useful items with people nearby." />
+  <title>DaanSetu - Free Donation Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="DaanSetu home">
+        <span class="brand-mark" aria-hidden="true">DS</span>
+        <span>DaanSetu</span>
+      </a>
+      <div class="header-actions">
+        <a class="header-link" href="#listings">Browse listings <span aria-hidden="true">&#8599;</span></a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true">&#9790;</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro-section" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span></span> Give what you can</p>
+        <h1 id="page-title">Small things.<br /><em>Big difference.</em></h1>
+        <p class="intro-text">Pass on useful items to someone nearby. Every listing is free, simple, and powered by community.</p>
+      </div>
+      <div class="intro-note" aria-hidden="true">
+        <span class="note-line"></span>
+        <span>Share locally.<br />Make an impact.</span>
+      </div>
+    </section>
+
+    <section class="post-section" aria-labelledby="post-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">01 / Share an item</p>
+          <h2 id="post-title">What would you like to give?</h2>
+        </div>
+        <p class="required-note"><span>*</span> Required fields</p>
+      </div>
+
+      <form id="donation-form" class="donation-form">
+        <div class="field field-wide">
+          <label for="item-name">Item name <span>*</span></label>
+          <input id="item-name" name="itemName" type="text" placeholder="e.g. Study table, winter jacket" required maxlength="80" />
+        </div>
+        <div class="field field-wide">
+          <label for="description">Description <span>*</span></label>
+          <textarea id="description" name="description" rows="4" placeholder="Tell someone a little more about the item's condition or size..." required maxlength="400"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="city">City <span>*</span></label>
+            <input id="city" name="city" type="text" placeholder="e.g. Pune" required maxlength="60" />
+          </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp number <span>*</span></label>
+            <input id="whatsapp" name="whatsapp" type="tel" placeholder="e.g. +91 98765 43210" required maxlength="20" />
+          </div>
+        </div>
+        <div class="form-footer">
+          <label class="upload-control" for="photo">
+            <span class="upload-icon" aria-hidden="true">&#8593;</span>
+            <span><strong>Add a photo</strong><small>Optional · JPG, PNG up to 5MB</small></span>
+            <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" />
+          </label>
+          <span id="file-name" class="file-name" aria-live="polite"></span>
+          <button class="primary-button" type="submit">Post donation <span aria-hidden="true">&#8594;</span></button>
+        </div>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="listings" class="listings-section" aria-labelledby="listings-title">
+      <div class="section-heading listing-heading">
+        <div>
+          <p class="section-kicker">02 / Find something useful</p>
+          <h2 id="listings-title">Available nearby</h2>
+        </div>
+        <div class="listing-stats"><span id="listing-count" class="listing-count">0 items</span><span id="total-count" class="total-count">0 total donations</span></div>
+      </div>
+      <div class="listing-tools">
+        <label class="search-field" for="search-input"><span aria-hidden="true">&#9906;</span><input id="search-input" type="search" placeholder="Search by item or city" autocomplete="off" /></label>
+        <label class="filter-field" for="city-filter"><span class="sr-only">Filter by city</span><select id="city-filter"><option value="">All cities</option></select></label>
+      </div>
+      <div id="empty-state" class="empty-state">
+        <span class="empty-icon" aria-hidden="true">+</span>
+        <h3>Your community is waiting</h3>
+        <p>No donations have been posted yet. Be the first to share something useful.</p>
+      </div>
+      <p id="no-results" class="no-results" hidden>No donations match your search. Try a different item or city.</p>
+      <div id="donation-list" class="donation-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>DaanSetu</span><span>Give freely. Receive gratefully.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

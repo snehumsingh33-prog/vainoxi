@@ -1,0 +1,5 @@
+node_modules/
+.env
+daansetu.db
+daansetu.db-shm
+daansetu.db-wal

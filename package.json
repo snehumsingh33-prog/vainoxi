@@ -1,0 +1,17 @@
+{
+  "name": "daansetu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DaanSetu free donation platform with admin portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "mongodb": "^7.5.0"
+  }
+}
