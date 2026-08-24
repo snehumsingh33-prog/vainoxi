@@ -4,8 +4,8 @@
   "private": true,
   "description": "DaanSetu free donation platform with admin portal",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "node local-server.js",
+    "dev": "node --watch local-server.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",

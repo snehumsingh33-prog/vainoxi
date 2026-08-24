@@ -1,4 +1,4 @@
-const { app, start } = require('../server');
+const { app, start } = require('../local-server');
 
 let ready;
 
